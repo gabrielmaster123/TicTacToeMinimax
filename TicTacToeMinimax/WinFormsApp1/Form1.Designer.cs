@@ -112,8 +112,21 @@
             int row = position.X;  // Row index
             int col = position.Y;  // Column index
 
-            game.GameArr[row, col] = game.Turn(game.GameArr);
-            turnLabel.Text = game.Turn(game.GameArr);
+            if (game.GameArr[row, col] == null &&
+                game.CheckWinner() == null)
+            {
+                game.GameArr[row, col] = game.Turn(game.GameArr);
+            }
+
+            if (game.CheckWinner() == null)
+            {              
+                turnLabel.Text = game.Turn(game.GameArr);
+                
+            }
+            else
+            {
+                turnLabel.Text = "The winner is: " + game.CheckWinner();
+            }
             UpdateButtons();
         }
 
