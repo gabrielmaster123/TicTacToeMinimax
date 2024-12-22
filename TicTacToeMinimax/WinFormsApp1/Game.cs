@@ -34,22 +34,22 @@ namespace WinFormsApp1
             label.Text = output.ToString();
         }
 
-        public String Turn(String[,] game)
+        public String Turn()
         {
             int count = 0;
             int countX = 0;
             int countO = 0;
 
-            for (int i = 0; i < game.GetLength(0); i++)  // Iterate over rows
+            for (int i = 0; i < gameArr.GetLength(0); i++)  // Iterate over rows
             {
-                for (int j = 0; j < game.GetLength(1); j++)  // Iterate over columns
+                for (int j = 0; j < gameArr.GetLength(1); j++)  // Iterate over columns
                 {
-                    if (game[i, j] == "X")
+                    if (gameArr[i, j] == "X")
                     {
                         count++;
                         countX++;
                     }
-                    else if (game[i, j] == "O")
+                    else if (gameArr[i, j] == "O")
                     {
                         count++;
                         countO++;
@@ -68,6 +68,7 @@ namespace WinFormsApp1
 
         public string CheckWinner()
         {
+            int count = 0;
             // Check rows
             for (int i = 0; i < gameArr.GetLength(0); i++)
             {
@@ -78,11 +79,11 @@ namespace WinFormsApp1
             }
 
             // Check columns
-            for (int j = 0; j < gameArr.GetLength(1); j++)
+            for (int i = 0; i < gameArr.GetLength(1); i++)
             {
-                if (gameArr[0, j] != null && gameArr[0, j] == gameArr[1, j] && gameArr[1, j] == gameArr[2, j])
+                if (gameArr[0, i] != null && gameArr[0, i] == gameArr[1, i] && gameArr[1, i] == gameArr[2, i])
                 {
-                    return gameArr[0, j];  // Return "X" or "O" if a winner is found
+                    return gameArr[0, i];  // Return "X" or "O" if a winner is found
                 }
             }
 
@@ -97,6 +98,20 @@ namespace WinFormsApp1
                 return gameArr[0, 2];  // Return "X" or "O" if a winner is found
             }
 
+            for(int i = 0;  i < gameArr.GetLength(0); i++)
+            {
+                for(int j = 0; j < gameArr.GetLength(1); j++)
+                {
+                    if(gameArr[i, j] != null)
+                    {
+                        count++;
+                    }
+                }
+            }
+            if(count == 9)
+            {
+                return "Tie!";
+            }
             return null;  // No winner
         }
 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             turnLabel = new Label();
+            makeAITurn = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // turnLabel
@@ -41,11 +43,33 @@
             turnLabel.Text = "turnLabel";
             turnLabel.Click += label1_Click_2;
             // 
+            // makeAITurn
+            // 
+            makeAITurn.Location = new Point(617, 67);
+            makeAITurn.Name = "makeAITurn";
+            makeAITurn.Size = new Size(75, 23);
+            makeAITurn.TabIndex = 1;
+            makeAITurn.Text = "AI Turn";
+            makeAITurn.UseVisualStyleBackColor = true;
+            makeAITurn.Click += button1_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(617, 96);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Reset";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
+            Controls.Add(makeAITurn);
             Controls.Add(turnLabel);
             Name = "Form1";
             Text = "Form1";
@@ -115,13 +139,17 @@
             if (game.GameArr[row, col] == null &&
                 game.CheckWinner() == null)
             {
-                game.GameArr[row, col] = game.Turn(game.GameArr);
+                game.GameArr[row, col] = game.Turn();
             }
 
             if (game.CheckWinner() == null)
-            {              
-                turnLabel.Text = game.Turn(game.GameArr);
-                
+            {
+                turnLabel.Text = game.Turn();
+
+            }
+            else if (game.CheckWinner() == "Tie!")
+            {
+                turnLabel.Text = "It's a Tie!";
             }
             else
             {
@@ -131,5 +159,7 @@
         }
 
         private Label turnLabel;
+        private Button makeAITurn;
+        private Button button1;
     }
 }
