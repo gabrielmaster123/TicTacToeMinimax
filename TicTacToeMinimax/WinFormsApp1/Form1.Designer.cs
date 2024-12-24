@@ -31,6 +31,8 @@
             turnLabel = new Label();
             makeAITurn = new Button();
             button1 = new Button();
+            getValue = new Button();
+            valueLabel = new Label();
             SuspendLayout();
             // 
             // turnLabel
@@ -63,11 +65,33 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // getValue
+            // 
+            getValue.Location = new Point(616, 136);
+            getValue.Name = "getValue";
+            getValue.Size = new Size(75, 23);
+            getValue.TabIndex = 3;
+            getValue.Text = "GetValue";
+            getValue.UseVisualStyleBackColor = true;
+            getValue.Click += getValue_Click;
+            // 
+            // valueLabel
+            // 
+            valueLabel.AutoSize = true;
+            valueLabel.Location = new Point(618, 175);
+            valueLabel.Name = "valueLabel";
+            valueLabel.Size = new Size(35, 15);
+            valueLabel.TabIndex = 4;
+            valueLabel.Text = "Value";
+            valueLabel.Click += Value_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(valueLabel);
+            Controls.Add(getValue);
             Controls.Add(button1);
             Controls.Add(makeAITurn);
             Controls.Add(turnLabel);
@@ -161,5 +185,7 @@
         private Label turnLabel;
         private Button makeAITurn;
         private Button button1;
+        private Button getValue;
+        private Label valueLabel;
     }
 }

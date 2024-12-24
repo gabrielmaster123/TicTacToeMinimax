@@ -33,7 +33,7 @@ namespace WinFormsApp1
                     bestValue = value; // Update the best value for minimizer
                 }
                 else if (game.Turn() == "O" && 
-                    value > bestValue)
+                     value > bestValue)
                 {
                     bestMove = move;
                     bestValue = value; // Update the best value for maximizer
@@ -61,6 +61,11 @@ namespace WinFormsApp1
             return moves;
         }
 
+        public int getValue(Game game)
+        {
+            return Alg(game);
+        }
+
         private int Alg(Game game)
         {
             int value = 0;
@@ -79,15 +84,7 @@ namespace WinFormsApp1
                 return 0;//tie
             }
             
-            if(game.Turn() == "X")
-            {
-                value = int.MaxValue;
-
-            }else if(game.Turn() == "O")
-            {
-                value = int.MinValue;
-            }
-
+            
             foreach(Point move in AllPossibleMoves(game))
             {
 
@@ -96,6 +93,7 @@ namespace WinFormsApp1
 
                 tempGame.GameArr[move.X, move.Y] = tempGame.Turn();
 
+               
                 int tempValue = Alg(tempGame);
                 if (game.Turn() == "X")
                 {

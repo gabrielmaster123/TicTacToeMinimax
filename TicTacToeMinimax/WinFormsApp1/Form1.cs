@@ -56,7 +56,7 @@ namespace WinFormsApp1
             //}
             //else
             //{
-                game.GameArr[move.X, move.Y] = game.Turn();
+            game.GameArr[move.X, move.Y] = game.Turn();
             //}
             UpdateButtons();
 
@@ -67,6 +67,16 @@ namespace WinFormsApp1
         {
             game.GameArr = new string[3, 3];
             UpdateButtons();
+        }
+
+        private void getValue_Click(object sender, EventArgs e)
+        {
+            valueLabel.Text = mm.getValue(game).ToString();
+        }
+
+        private void Value_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
