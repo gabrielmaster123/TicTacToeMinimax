@@ -13,6 +13,7 @@ namespace WinFormsApp1
 
         public Point BestMove(Game game)
         {
+            int value = 0;
             Point bestMove = new Point(-1,-1);
 
             int bestValue = game.Turn() == "X" ? int.MaxValue : int.MinValue;
@@ -24,16 +25,23 @@ namespace WinFormsApp1
 
                 tempGame.GameArr[move.X, move.Y] = tempGame.Turn();
 
-                int value = Alg(tempGame);
+                if (game.Turn() == "X") {
+                    value = Alg(tempGame, false); 
+                } else 
+                { 
+                    value = Alg(tempGame, true); 
+                }
+
 
                 if (game.Turn() == "X" && 
-                    value < bestValue)
+                    value <= bestValue)
                 {
+
                     bestMove = move;
                     bestValue = value; // Update the best value for minimizer
                 }
                 else if (game.Turn() == "O" && 
-                     value > bestValue)
+                     value >= bestValue)
                 {
                     bestMove = move;
                     bestValue = value; // Update the best value for maximizer
@@ -63,45 +71,39 @@ namespace WinFormsApp1
 
         public int getValue(Game game)
         {
-            return Alg(game);
+            return Alg(game, game.Turn()=="O");
         }
 
-        private int Alg(Game game)
+        private int Alg(Game game, bool isMax)
         {
-            int value = 0;
-            if(game.CheckWinner() == "X")
-            {
-                return int.MinValue;//minimise
-            }
-            
-            if(game.CheckWinner() == "O")
-            {
-                return int.MaxValue;//maximise
-            }
+            int value = 0;//if something goes wrong its probably gonna be this ngl
+            String winner = game.CheckWinner();
+            if (winner == "X") return int.MinValue;//minimise
+            if (winner == "O") return int.MaxValue;//maximise
 
-            if(AllPossibleMoves(game).Count == 0)
-            {
-                return 0;//tie
-            }
+            if (AllPossibleMoves(game).Count == 0) return 0;//tie
             
             
-            foreach(Point move in AllPossibleMoves(game))
+            if(game.Turn() == "X")
             {
-
-                Game tempGame = new Game();
-                Array.Copy(game.GameArr, tempGame.GameArr, game.GameArr.Length);
-
-                tempGame.GameArr[move.X, move.Y] = tempGame.Turn();
-
-               
-                int tempValue = Alg(tempGame);
-                if (game.Turn() == "X")
+                value = int.MaxValue;
+                foreach (Point move in AllPossibleMoves(game))
                 {
-                    value = Math.Min(value, tempValue);
+                    Game tempGame = new Game();
+                    Array.Copy(game.GameArr, tempGame.GameArr, game.GameArr.Length);
+                    tempGame.GameArr[move.X, move.Y] = tempGame.Turn();
+                    value = Math.Min(value, Alg(tempGame, false));
                 }
-                else
+            }
+            else
+            {
+                value = int.MinValue;
+                foreach (Point move in AllPossibleMoves(game))
                 {
-                    value = Math.Max(value, tempValue);
+                    Game tempGame = new Game();
+                    Array.Copy(game.GameArr, tempGame.GameArr, game.GameArr.Length);
+                    tempGame.GameArr[move.X, move.Y] = tempGame.Turn();
+                    value = Math.Max(value, Alg(tempGame, true));
                 }
             }
             

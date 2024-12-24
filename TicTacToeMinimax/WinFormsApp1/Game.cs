@@ -98,6 +98,7 @@ namespace WinFormsApp1
                 return gameArr[0, 2];  // Return "X" or "O" if a winner is found
             }
 
+            //check for tie
             for(int i = 0;  i < gameArr.GetLength(0); i++)
             {
                 for(int j = 0; j < gameArr.GetLength(1); j++)
