@@ -38,20 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -80,6 +68,22 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Form1.cs",
@@ -100,7 +104,7 @@
               "RelativeDocumentMoniker": "WinFormsApp1\\Minimax.cs",
               "ToolTip": "C:\\Users\\gabri\\Documents\\GitHub\\TicTacToeMinimax\\TicTacToeMinimax\\WinFormsApp1\\Minimax.cs*",
               "RelativeToolTip": "WinFormsApp1\\Minimax.cs*",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAIwEsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFIAAAAAAAAAAADwv2MAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-22T15:14:58.98Z",
               "EditorCaption": ""
