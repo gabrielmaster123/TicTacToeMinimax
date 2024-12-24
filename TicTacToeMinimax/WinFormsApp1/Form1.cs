@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,14 +51,16 @@ namespace WinFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             Point move = mm.BestMove(game);
-            //if(game.CheckWinner() == null)
-            //{
-            //    game.GameArr = new string[3, 3];
-            //}
-            //else
-            //{
-            game.GameArr[move.X, move.Y] = game.Turn();
-            //}
+
+            try
+            {
+                game.GameArr[move.X, move.Y] = game.Turn();
+            } catch
+            {
+                turnLabel.Text = "No more moves Possible";
+            }
+            
+
             UpdateButtons();
 
 
@@ -72,6 +75,7 @@ namespace WinFormsApp1
         private void getValue_Click(object sender, EventArgs e)
         {
             valueLabel.Text = mm.getValue(game).ToString();
+            UpdateButtons();
         }
 
         private void Value_Click(object sender, EventArgs e)

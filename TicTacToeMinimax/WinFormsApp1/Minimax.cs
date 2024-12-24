@@ -71,12 +71,12 @@ namespace WinFormsApp1
             int value = 0;
             if(game.CheckWinner() == "X")
             {
-                return -1;//minimise
+                return int.MinValue;//minimise
             }
             
             if(game.CheckWinner() == "O")
             {
-                return +1;//maximise
+                return int.MaxValue;//maximise
             }
 
             if(AllPossibleMoves(game).Count == 0)
