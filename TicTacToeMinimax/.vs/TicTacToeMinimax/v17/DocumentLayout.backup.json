@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -66,6 +66,10 @@
               "WhenOpened": "2024-12-21T14:22:59.223Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
@@ -100,7 +104,7 @@
               "RelativeDocumentMoniker": "WinFormsApp1\\Minimax.cs",
               "ToolTip": "C:\\Users\\gabri\\Documents\\GitHub\\TicTacToeMinimax\\TicTacToeMinimax\\WinFormsApp1\\Minimax.cs*",
               "RelativeToolTip": "WinFormsApp1\\Minimax.cs*",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwGEAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAADwv3UAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-22T15:14:58.98Z",
               "EditorCaption": ""
@@ -138,7 +142,7 @@
               "RelativeDocumentMoniker": "WinFormsApp1\\Game.cs",
               "ToolTip": "C:\\Users\\gabri\\Documents\\GitHub\\TicTacToeMinimax\\TicTacToeMinimax\\WinFormsApp1\\Game.cs",
               "RelativeToolTip": "WinFormsApp1\\Game.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAIwEkAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAADwv3oAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-21T14:33:02.461Z",
               "EditorCaption": ""

@@ -76,7 +76,11 @@ namespace WinFormsApp1
 
         private int Alg(Game game, bool isMax)
         {
+
+            int alpha = int.MinValue;
+            int beta = int.MaxValue;
             int value = 0;//if something goes wrong its probably gonna be this ngl
+            
             String winner = game.CheckWinner();
             if (winner == "X") return int.MinValue;//minimise
             if (winner == "O") return int.MaxValue;//maximise
@@ -93,6 +97,10 @@ namespace WinFormsApp1
                     Array.Copy(game.GameArr, tempGame.GameArr, game.GameArr.Length);
                     tempGame.GameArr[move.X, move.Y] = tempGame.Turn();
                     value = Math.Min(value, Alg(tempGame, false));
+                    if (value <= alpha)
+                    {
+                        break;
+                    }
                 }
             }
             else
@@ -104,6 +112,10 @@ namespace WinFormsApp1
                     Array.Copy(game.GameArr, tempGame.GameArr, game.GameArr.Length);
                     tempGame.GameArr[move.X, move.Y] = tempGame.Turn();
                     value = Math.Max(value, Alg(tempGame, true));
+                    if (beta <= value)
+                    {
+                        break;
+                    }
                 }
             }
             
