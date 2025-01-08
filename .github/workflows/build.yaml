@@ -9,16 +9,16 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-latest  
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup .NET
+      - name: Setup .NET 9.0
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.x'  # Update to your .NET version
+          dotnet-version: '9.x'  
 
       - name: Restore dependencies
         run: dotnet restore
@@ -32,6 +32,11 @@ jobs:
         run: dotnet publish --configuration Release --output ./publish
         working-directory: ./TicTacToeMinimax
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: TicTacToeMinimax
+          path: ./publish
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
