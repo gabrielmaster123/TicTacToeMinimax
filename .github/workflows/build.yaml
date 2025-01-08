@@ -37,11 +37,6 @@ jobs:
         with:
           name: TicTacToeMinimax
           path: ./publish
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: TicTacToeMinimax
-          path: ./publish
 
   release:
     needs: build
