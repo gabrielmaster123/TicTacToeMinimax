@@ -43,6 +43,16 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create and push tag
+        run: |
+          TAG_NAME="v$(date +'%Y.%m.%d')"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -51,6 +61,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
+          files: ./publish/*
+          tag_name: ${{ steps.create_tag.outputs.tag }}
           files: ./publish/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
