@@ -37,6 +37,7 @@ jobs:
         with:
           name: TicTacToeMinimax
           path: ./publish
+        working-directory: ./TicTacToeMinimax/WinFormsApp1
 
   release:
     needs: build
