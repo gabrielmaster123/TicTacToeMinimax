@@ -61,7 +61,6 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./publish/*
           tag_name: ${{ steps.create_tag.outputs.tag }}
           files: ./publish/*
         env:
