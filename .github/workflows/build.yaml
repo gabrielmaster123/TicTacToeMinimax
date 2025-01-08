@@ -36,8 +36,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: TicTacToeMinimax
-          path: ./publish
-        working-directory: ./TicTacToeMinimax/WinFormsApp1
+          path: ./TicTacToeMinimax/WinFormsApp1/publish
 
   release:
     needs: build
