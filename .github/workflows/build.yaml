@@ -50,12 +50,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create and push tag
-        run: |
+        id: create_tag  
+        run: |s
           $TAG_NAME = "Icncl-$(Get-Date -Format 'yyyyMMddHHmmss')"
           git tag $TAG_NAME
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git push origin $TAG_NAME
+          echo "::set-output name=tag::$TAG_NAME"  # Set output for later use
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -65,9 +67,9 @@ jobs:
           name: TicTacToeMinimax
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1  # Updated to v1
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.create_tag.outputs.tag }}
+          tag_name: ${{ steps.create_tag.outputs.tag }} 
           files: ./publish/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
