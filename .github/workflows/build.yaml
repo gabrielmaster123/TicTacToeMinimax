@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Updated to v4
+        uses: actions/checkout
 
       - name: Setup .NET 9.0
-        uses: actions/setup-dotnet@v4  # Updated to v4
+        uses: actions/setup-dotnet
         with:
           dotnet-version: '9.x'  
 
@@ -34,7 +34,7 @@ jobs:
         working-directory: ./TicTacToeMinimax/WinFormsApp1
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4  # Updated to v4
+        uses: actions/upload-artifact
         with:
           name: TicTacToeMinimax
           path: ./TicTacToeMinimax/WinFormsApp1/publish
@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Updated to v4
+        uses: actions/checkout
         with:
           token: ${{ secrets.GITHUB_TOKEN }}  
 
@@ -60,12 +60,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v4  # Updated to v4
+        uses: actions/download-artifact
         with:
           name: TicTacToeMinimax
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v4  # Updated to v4
+        uses: softprops/action-gh-release
         with:
           tag_name: ${{ steps.create_tag.outputs.tag }}
           files: ./publish/*
